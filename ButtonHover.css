@@ -1,0 +1,54 @@
+body{
+    background: black;
+}
+.button{
+    width: 100px;
+    height: 100px;
+    margin: 20% auto 0;
+    display: block;
+    position: relative;
+    background: #00ffff;
+}
+.buttonHover{
+    background: #002320;
+    width: 34px;
+    height: 2px;
+    position: absolute;
+    transition: 300ms ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    &::before, &::after{
+        position: absolute;
+        content: " ";
+        left: 16px;
+        background: #002320;
+        width: 2px;
+        height: 16px;
+        transition: 300ms ease, 300ms ease, 300ms ease, 300ms ease;
+    }
+    &::before{
+        bottom: 100%;
+    }
+    &::after{
+        top: 100%;
+    }
+}
+.button:hover{
+    .buttonHover{
+        transform: rotate(180deg);
+        &::before, &::after{
+            left: 4px;
+        }
+        &::before{
+            transform: rotate(45deg);
+            bottom: -2px;
+        }
+        &::after{
+            transform: rotate(-45deg);
+            top: -2px;
+        }
+    }
+}
